@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import MovieData from './MovieData';
+import Navbar from './Navbar';
 
 function Movie() {
   const { id } = useParams();
@@ -8,8 +9,10 @@ function Movie() {
 
   return (
     <div>
+      <Navbar />
       {movie ? (
         <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+        
           <div className="py-3 sm:max-w-xl sm:mx-auto">
             <div className="bg-white shadow-lg border-gray-100 max-h-80	 border sm:rounded-3xl p-8 flex space-x-8">
               <div className="h-48 overflow-visible w-1/2">
@@ -39,7 +42,7 @@ function Movie() {
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/e_we2JPZuiI?si=JrBUssX5SW4VBu1o"
+              src={movie.trailer}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

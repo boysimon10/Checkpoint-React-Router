@@ -9,7 +9,7 @@ function MovieCard({ movie }) {
             src={movie.poster}
             width={375}
             height={200}
-            className="rounded-t-2xl justify-center grid h-80 object-cover"
+            className="rounded-t-2xl justify-center grid h-96 object-cover"
             alt={movie.title}
           />
           <div className="group p-6 grid z-10">
