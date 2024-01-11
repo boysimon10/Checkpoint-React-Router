@@ -4,12 +4,15 @@ import MovieData from './MovieData';
 import Navbar from './Navbar';
 
 function Movie() {
+   // Récupération de l'ID du film à partir des paramètres de l'URL
   const { id } = useParams();
+   // Recherche du film dans le tableau MovieData en fonction de l'ID
   const movie = MovieData.find((m) => m.id === parseInt(id));
 
   return (
     <div>
       <Navbar />
+      {/* Condition pour vérifier si le film existe */}
       {movie ? (
         <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
         
@@ -19,7 +22,7 @@ function Movie() {
                 <img
                   className="rounded-3xl shadow-lg"
                   src={movie.poster}
-                  alt=""
+                  alt={movie.title}
                 />
               </div>
               <div className="flex flex-col w-1/2 space-y-4">
@@ -43,7 +46,7 @@ function Movie() {
               width="560"
               height="315"
               src={movie.trailer}
-              title="YouTube video player"
+              title={movie.title}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
